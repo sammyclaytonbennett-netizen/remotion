@@ -4,21 +4,37 @@ import {
   calculateCaptionedVideoMetadata,
   captionedVideoSchema,
 } from "./CaptionedVideo";
-
-// Each <Composition> is an entry in the sidebar!
+import {
+  EnhancedCaptionedVideo,
+  calculateEnhancedMetadata,
+  enhancedCaptionedVideoSchema,
+} from "./CaptionedVideo/EnhancedCaptionedVideo";
 
 export const RemotionRoot: React.FC = () => {
   return (
-    <Composition
-      id="CaptionedVideo"
-      component={CaptionedVideo}
-      calculateMetadata={calculateCaptionedVideoMetadata}
-      schema={captionedVideoSchema}
-      width={1080}
-      height={1920}
-      defaultProps={{
-        src: staticFile("sample-video.mp4"),
-      }}
-    />
+    <>
+      <Composition
+        id="CaptionedVideo"
+        component={CaptionedVideo}
+        calculateMetadata={calculateCaptionedVideoMetadata}
+        schema={captionedVideoSchema}
+        width={1080}
+        height={1920}
+        defaultProps={{
+          src: staticFile("sample-video.mp4"),
+        }}
+      />
+      <Composition
+        id="EnhancedSocialVideo"
+        component={EnhancedCaptionedVideo}
+        calculateMetadata={calculateEnhancedMetadata}
+        schema={enhancedCaptionedVideoSchema}
+        width={1080}
+        height={1920}
+        defaultProps={{
+          src: staticFile("social-video.webm"),
+        }}
+      />
+    </>
   );
 };
