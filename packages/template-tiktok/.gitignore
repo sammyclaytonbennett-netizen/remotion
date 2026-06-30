@@ -6,3 +6,7 @@ dist
 # Ignore the output video from Git but not videos you import into src/.
 out
 whisper.cpp
+temp/
+# User-uploaded source videos (not tracked in repo — use transcribe.mjs to generate captions)
+public/social-video*.mp4
+public/social-video*.webm
